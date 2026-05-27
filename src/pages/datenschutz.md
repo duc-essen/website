@@ -1,72 +1,109 @@
 ---
 layout: ../layouts/LegalLayout.astro
 title: Datenschutzerklärung
-description: Datenschutzhinweise gemäß DSGVO des Deutschen Unterwasserclub Essen e.V.
+description: Datenschutzerklärung des Deutschen Unterwasserclub Essen e.V. nach DSGVO.
 ---
 
-> **Hinweis:** Dieser Text ist ein Entwurf, der noch mit dem Vorstand abgestimmt werden muss. Der bisher gültige Datenschutztext liegt unter [duc-essen.de/datenschutzhinweise/](https://duc-essen.de/datenschutzhinweise/) und sollte hier eingearbeitet werden, sobald er final ist.
+## 1. Name und Kontaktdaten des für die Verarbeitung Verantwortlichen
 
-## 1. Verantwortlicher
+Diese Datenschutzinformation gilt für die Datenverarbeitung durch:
 
-Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
-
-**Deutscher Unterwasserclub Essen e.V.**
+**Verantwortlicher:** Deutscher Unterwasserclub Essen e.V.
 Postfach 34 01 51
 45073 Essen
-E-Mail: [katharina@duc-essen.de](mailto:katharina@duc-essen.de)
+E-Mail: [info@duc-essen.de](mailto:info@duc-essen.de)
 
-## 2. Erhebung und Speicherung personenbezogener Daten
+## 2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck von deren Verwendung
 
 ### a) Beim Besuch der Website
 
-Beim Aufrufen unserer Website werden durch den auf Ihrem Endgerät zum Einsatz kommenden Browser automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:
+Beim Aufrufen unserer Website werden durch den von Ihnen benutzten Browser automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:
 
 - IP-Adresse des anfragenden Rechners
 - Datum und Uhrzeit des Zugriffs
 - Name und URL der abgerufenen Datei
 - Website, von der aus der Zugriff erfolgt (Referrer-URL)
-- Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners
+- Verwendeter Browser und ggf. das Betriebssystem sowie der Name des Access-Providers
 
-Die Verarbeitung dieser Daten erfolgt zur Gewährleistung eines reibungslosen Verbindungsaufbaus sowie zur Gewährleistung einer komfortablen Nutzung unserer Website. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+**Verarbeitungszwecke:**
 
-Diese Website wird über GitHub Pages gehostet. Beim Aufruf werden Daten auch durch GitHub, Inc. verarbeitet — siehe die [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+- Gewährleistung eines reibungslosen Verbindungsaufbaus
+- Gewährleistung einer komfortablen Nutzung
+- Auswertung der Systemsicherheit und -stabilität
+- Weitere administrative Zwecke
 
-### b) Bei Anmeldung zum Probetraining
+Die Rechtsgrundlage ist Artikel 6 Abs. 1 S. 1 lit. f) DSGVO (berechtigte Interessen). Die Daten werden nicht zur Identifikation von Personen verwendet.
 
-Wenn Sie das Anmeldeformular auf unserer Kontaktseite nutzen, werden Ihre Angaben (Name, E-Mail-Adresse, ggf. weitere von Ihnen angegebene Daten) zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Das Formular wird durch unseren Dienstleister Vereinsplaner bereitgestellt.
+### b) Bei Nutzung des Kontaktformulars
 
-## 3. Weitergabe von Daten
+Eine gültige E-Mail-Adresse ist erforderlich. Weitere Angaben sind freiwillig. Die Datenverarbeitung erfolgt nach Artikel 6 Abs. 1 S. 1 lit. a) DSGVO auf der Grundlage Ihrer freiwillig erteilten Einwilligung. Nach Erledigung Ihrer Anfrage werden die Daten automatisch gelöscht.
 
-Eine Übermittlung Ihrer persönlichen Daten an Dritte zu anderen als den im Folgenden aufgeführten Zwecken findet nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:
+## 3. Links auf Websites Dritter
 
-- Sie Ihre ausdrückliche Einwilligung dazu erteilt haben (Art. 6 Abs. 1 lit. a DSGVO),
-- die Weitergabe zur Erfüllung eines Vertrags erforderlich ist (Art. 6 Abs. 1 lit. b DSGVO),
-- eine gesetzliche Verpflichtung zur Weitergabe besteht (Art. 6 Abs. 1 lit. c DSGVO).
+Links werden sorgfältig recherchiert. Allerdings haben wir keinen Einfluss auf die aktuelle und zukünftige Gestaltung und Inhalte der verlinkten Seiten. Wir sind nicht für Inhalte verlinkter Seiten verantwortlich. Eine Haftung ist ausgeschlossen, es sei denn, wir haben positive Kenntnis von rechtswidrigen Inhalten und können deren Nutzung technisch verhindern.
 
-## 4. Eingebundene Dienste Dritter
+## 4. Weitergabe von Daten
 
-Auf dieser Website sind folgende externe Dienste eingebunden:
+Ihre Daten werden an Dritte weitergegeben nur wenn:
 
-- **Google Fonts** (Schriftart Poppins) – Schriftarten werden direkt von Google geladen.
-- **Google Maps** (Karten-Einbettung auf der Trainingsseite) – Beim Laden werden Daten an Google übertragen.
-- **Vereinsplaner** (Anmeldeformular) – Bei Nutzung werden Eingaben an unseren Vereinsverwaltungsdienst übermittelt.
+- Sie Ihre nach Artikel 6 Abs. 1 S. 1 lit. a) DSGVO ausdrückliche Einwilligung dazu erteilt haben
+- die Weitergabe gemäß Artikel 6 Abs. 1 S. 1 lit. f) DSGVO zur Geltendmachung von Rechtsansprüchen erforderlich ist und kein überwiegendes schutzwürdiges Interesse gegen die Weitergabe besteht
+- eine gesetzliche Verpflichtung nach Artikel 6 Abs. 1 S. 1 lit. c) DSGVO besteht
+- dies gemäß Artikel 6 Abs. 1 S. 1 lit. b) DSGVO für Vertragsverhältnisse erforderlich ist
 
-## 5. Ihre Rechte
+## 5. Verwendung von Cookies
+
+Die Website verwendet funktionale (technisch notwendige) Cookies, um die ordnungsgemäße Funktion sicherzustellen. Diese werden bis maximal zwei Jahren gespeichert, dann automatisch gelöscht.
+
+**Cookies werden benötigt für:**
+
+- Einbettung der Google Maps Karte
+- Anzeige des Cookie Banners
+
+Sie haben die volle Kontrolle über Cookies durch Ihre Browsereinstellungen. Sie können diese deaktivieren oder löschen. Bei Deaktivierung können möglicherweise nicht alle Funktionen vollumfänglich genutzt werden.
+
+## 6. Verwendung von Google Maps
+
+Die Website nutzt Google Maps zur Darstellung eines Lageplans der Trainingseinrichtung am Schwimmbad Essen Nord-Ost. Google Maps wird von Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA betrieben.
+
+Durch die Nutzung dieser Website erklären Sie sich mit der Erfassung, Bearbeitung sowie der Nutzung der automatisch erhobenen sowie der von Ihnen eingegebenen Daten durch Google einverstanden.
+
+Weitere Informationen finden Sie unter den Google Maps Nutzungsbedingungen und dem Datenschutz-Center von Google.
+
+## 7. Betroffenenrechte
 
 Sie haben das Recht:
 
-- gemäß Art. 15 DSGVO Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen.
-- gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen.
-- gemäß Art. 17 DSGVO die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen.
-- gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-- gemäß Art. 20 DSGVO Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.
-- gemäß Art. 7 Abs. 3 DSGVO Ihre einmal erteilte Einwilligung jederzeit gegenüber uns zu widerrufen.
-- gemäß Art. 77 DSGVO sich bei einer Aufsichtsbehörde zu beschweren.
+- gemäß Artikel 7 Abs. 3 DSGVO Ihre Einwilligung jederzeit zu widerrufen.
+- gemäß Artikel 15 DSGVO Auskunft über Ihre verarbeiteten personenbezogenen Daten zu verlangen (Verarbeitungszwecke, Kategorien, Empfänger, Speicherdauer, Berichtigungs- bzw. Löschungsrechte, Herkunft der Daten, automatisierte Entscheidungsfindung).
+- gemäß Artikel 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung unvollständiger Daten zu verlangen.
+- gemäß Artikel 17 DSGVO die Löschung Ihrer Daten zu verlangen, soweit nicht die Verarbeitung zur Ausübung von Meinungsfreiheit, Erfüllung rechtlicher Verpflichtungen, öffentlichem Interesse oder Geltendmachung von Rechtsansprüchen erforderlich ist.
+- gemäß Artikel 18 DSGVO die Einschränkung der Verarbeitung zu verlangen unter bestimmten Bedingungen.
+- gemäß Artikel 20 DSGVO Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder die Übermittlung an einen anderen Verantwortlichen zu verlangen.
+- gemäß Artikel 77 DSGVO sich bei einer Aufsichtsbehörde zu beschweren.
 
-## 6. Widerspruchsrecht
+## 8. Widerspruchsrecht
 
-Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten einzulegen.
+Sofern Ihre Daten auf Grundlage berechtigter Interessen gemäß Artikel 6 Abs. 1 S. 1 lit. f) DSGVO verarbeitet werden, haben Sie das Recht, gemäß Artikel 21 DSGVO Widerspruch einzulegen, soweit Gründe aus Ihrer besonderen Situation vorliegen.
 
-## 7. Aktualität dieser Datenschutzerklärung
+Widerspruch per E-Mail an: [info@duc-essen.de](mailto:info@duc-essen.de)
 
-Diese Datenschutzerklärung ist aktuell gültig. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+## 9. Datensicherheit
+
+Die Website verwendet SSL-Verfahren (Secure Socket Layer) mit der höchsten vom Browser unterstützten Verschlüsselungsstufe (in der Regel 256 Bit, ansonsten 128 Bit v3). Ein geschlossenes Schlüssel- bzw. Schlosssymbol zeigt verschlüsselte Übertragung an.
+
+Zusätzlich werden geeignete technische und organisatorische Sicherheitsmaßnahmen zum Schutz vor Manipulation, Verlust, Zerstörung oder unbefugtem Zugriff eingesetzt. Diese werden fortlaufend verbessert.
+
+## 10. Aktualität und Änderung dieser Datenschutzerklärung
+
+Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2018.
+
+Bei Weiterentwicklung unserer Website oder Änderung gesetzlicher Vorgaben kann eine Anpassung notwendig werden. Die jeweils aktuelle Version kann jederzeit auf der Webseite abgerufen und ausgedruckt werden.
+
+## 11. Bestehen einer automatisierten Entscheidungsfindung
+
+Zur Verwaltung von Cookies und ähnlichen Technologien wird das Consent Tool „Real Cookie Banner" eingesetzt. Details finden Sie unter [https://devowl.io/de/rcb/datenverarbeitung/](https://devowl.io/de/rcb/datenverarbeitung/).
+
+Rechtsgrundlagen sind Artikel 6 Abs. 1 lit. c) DSGVO und Artikel 6 Abs. 1 lit. f) DSGVO. Das berechtigte Interesse besteht in der Verwaltung der Cookies und Einwilligungen.
+
+Die Bereitstellung personenbezogener Daten ist weder vertraglich vorgeschrieben noch für einen Vertragsabschluss notwendig. Sie sind nicht verpflichtet, diese bereitzustellen. Ohne Bereitstellung können Einwilligungen jedoch nicht verwaltet werden.
