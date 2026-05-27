@@ -27,7 +27,7 @@ Quick-Lookup. **Erste Anlaufstelle**, bevor du Code suchst.
 | **Vereinsdaten** (Name, Anschrift, E-Mail, Registergericht/-nummer) | [`src/data/verein.json`](./src/data/verein.json) — wird in Footer + Impressum + Datenschutz gelesen |
 | Vorstandsbesetzung | [`src/data/vorstand.json`](./src/data/vorstand.json) — wird in Footer + Impressum gelesen |
 | Mitgliedsbeitraege (Preise) | [`src/data/preise.json`](./src/data/preise.json) |
-| Veranstaltung hinzufuegen / aendern | [`src/content/veranstaltungen/*.md`](./src/content/veranstaltungen/) (eine Datei pro Termin) |
+| Veranstaltung hinzufuegen / aendern | **Im Vereinsplaner** anlegen — die Website holt den Feed automatisch (siehe Abschnitt „Bevorstehende Termine" weiter unten). |
 | Timeline-Eintrag (Geschichte) | [`src/content/geschichte/*.md`](./src/content/geschichte/) |
 | Angebot-Karte | [`src/content/angebote/*.md`](./src/content/angebote/) |
 | Mitgliedschafts-Card (CMAS/VDST/TSV) | [`src/content/mitgliedschaften/*.md`](./src/content/mitgliedschaften/) |
@@ -147,17 +147,16 @@ order: number
 # Body: Markdown-Beschreibung (rendert in der Karte)
 ```
 
-### `veranstaltungen` (`src/content/veranstaltungen/*.md`)
+### `veranstaltungen` — Live-Feed aus dem Vereinsplaner
+
+Keine Markdown-Dateien mehr — siehe Abschnitt **„Bevorstehende Termine"** unten. Loader: [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts). Schema:
 ```yaml
-titel: string
-untertitel: string
-badge_text: string                  # z.B. "Fr. 20. März 2026"
-badge_style: 'gold' | 'blue'        # gold = fester Termin, blue = laufend/Tipp
-icon: 'calendar'|'ship'|'video'|'goggles'|'pool'|'waves'
-order: number
-infos?: [{ label, wert }]           # Info-Box (HTML in `wert` erlaubt)
-link?: { text, url }                # Optionaler CTA-Button
-# Body: Markdown-Hauptbeschreibung
+summary: string         # SUMMARY aus iCal
+start: Date             # DTSTART
+end?: Date              # DTEND
+location?: string       # LOCATION
+description: string     # DESCRIPTION
+url?: string            # URL (Vereinsplaner-App-Link)
 ```
 
 ### `geschichte` (`src/content/geschichte/*.md`)
@@ -238,6 +237,25 @@ Hartcodiert in eigenen Komponenten, **nicht** in sections-Collection. Stats wird
 
 ### Fonts
 **Keine Google-Fonts.** Inter Variable kommt als NPM-Paket `@fontsource-variable/inter` (SIL Open Font License, von Rasmus Andersson) und wird in `BaseLayout.astro` lokal importiert. Damit fliesst nichts an Google.
+
+### Bevorstehende Termine (Vereinsplaner-Feed)
+
+Die Veranstaltungen-Sektion wird **nicht manuell** gepflegt. Sie kommt aus dem oeffentlichen iCal-Feed des Vereinsplaners:
+
+```
+https://api.vereinsplaner.at/v1/public/ical/3b22bae6-cb37-4e7c-8da4-f69f4563fd82.ics
+```
+
+Workflow:
+1. Vorstand legt Events im Vereinsplaner an (mit Datum, Titel, Beschreibung, Ort).
+2. Astro holt den Feed beim Build via [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts) (Custom Astro Content Loader, nutzt `node-ical`).
+3. Filter: nur zukuenftige Events, nicht „Training"/„Vorstand"/„Papnoe" im Titel.
+4. Pro Eintrag wird im Build eine Karte gerendert: Icon wird aus dem Event-Titel geraten (Pool/Waves/Video/etc.), Datum wird auf Deutsch formatiert, Beschreibung kommt aus DESCRIPTION.
+5. **Aktualitaet:** GitHub Action laeuft **taeglich um 04:00 UTC** (Cron in `.github/workflows/deploy.yml`), holt den Feed neu, deployed. Manuell via `workflow_dispatch` triggerbar.
+
+**Wenn der Feed nicht erreichbar ist** → der Loader gibt eine leere Collection zurueck. Die Seite zeigt einen Hinweis „Aktuell keine Termine eingetragen" statt zu crashen, deploy laeuft weiter.
+
+**Filter erweitern/anpassen:** in `src/loaders/vereinsplaner.ts` die `DENY_PATTERNS`-Liste editieren.
 
 ---
 

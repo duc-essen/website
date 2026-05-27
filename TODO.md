@@ -100,6 +100,7 @@ Beide sind aktuell hartcodierte Komponenten (`src/components/Hero.astro`, `src/c
 
 ## Erledigt (Referenz)
 
+- **Veranstaltungen kommen jetzt LIVE aus dem Vereinsplaner-iCal-Feed.** Vorstand pflegt nur dort, Astro-Build holt + filtert, taegliches Cron-Rebuild.
 - Astro-Setup + komplette Komponenten-Migration aus dem urspruenglichen Single-File-Entwurf
 - GitHub Pages Deployment via `withastro/action@v6`
 - Multi-Page-Architektur (One-Pager `/` + 7 Detail-Seiten + Impressum + Datenschutz, gesamt 10 statische Pages)

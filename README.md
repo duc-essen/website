@@ -22,27 +22,16 @@ Vor dem Deploy validiert Astro alle Eintraege gegen das Schema in [`src/content.
 
 ### Neue Veranstaltung hinzufuegen
 
-Datei `src/content/veranstaltungen/07-mein-event.md` anlegen:
+**Im Vereinsplaner** anlegen — die Website holt sich automatisch alle oeffentlichen, zukuenftigen Termine aus dem iCal-Feed. Du musst kein Code anfassen.
 
-```markdown
----
-titel: Tauchturm-Workshop 2026
-untertitel: Praxis-Tag fuer Apnoe-Einsteiger
-badge_text: 15. Juni 2026
-badge_style: gold      # gold = fester Termin, blue = laufend/Tipp
-icon: pool             # calendar | ship | video | goggles | pool | waves
-order: 7               # Reihenfolge in der Liste
-infos:
-  - { label: "Ort",      wert: "Stadtbad Nord-Ost" }
-  - { label: "Eintritt", wert: "Frei fuer Mitglieder" }
-link:                  # optional
-  text: Anmeldung
-  url: https://example.com/anmeldung
----
+- Titel sollte sprechend sein (ist die Headline der Karte).
+- Beschreibung kommt 1:1 als Karten-Text auf der Seite.
+- Datum + Uhrzeit + Ort werden automatisch formatiert.
+- Termine deren Titel „Training", „Vorstand" oder „Papnoe" enthaelt, werden ausgefiltert (interne Termine).
 
-Die Beschreibung kommt als normaler Markdown-Text in den Body.
-Inline-HTML wie <strong>fett</strong> und <br> funktioniert auch.
-```
+Aktualitaet: GitHub Action laeuft taeglich um 04:00 UTC und holt den Feed neu. Manuelles Re-Build per `gh workflow run "Deploy to GitHub Pages"`.
+
+Loader-Konfiguration: [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts).
 
 ### Geschichte / Timeline-Eintrag
 
