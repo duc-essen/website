@@ -132,6 +132,16 @@ const preise = defineCollection({
   }),
 });
 
+// Stats: 4 Kennzahlen in der Stats-Sektion (Jahre Tradition, Mitglieder, etc.).
+const stats = defineCollection({
+  loader: file('src/data/stats.json'),
+  schema: z.object({
+    wert: z.string(), // string, weil auch "60+", "ca. 45" o.ae. moeglich
+    label: z.string(),
+    order: z.number(),
+  }),
+});
+
 export const collections = {
   sections,
   angebote,
@@ -142,4 +152,5 @@ export const collections = {
   geschichte,
   vorstand,
   preise,
+  stats,
 };

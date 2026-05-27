@@ -1,20 +1,17 @@
-    <section class="stats" id="verein">
-        <div class="stats-grid">
-            <div class="stat-item fade-in">
-                <div class="stat-number" data-target="60">60</div>
-                <div class="stat-label">Jahre Tradition</div>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number" data-target="45">45</div>
-                <div class="stat-label">Aktive Mitglieder</div>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number" data-target="2">2</div>
-                <div class="stat-label">Trainings pro Woche</div>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Landesleistungsstützpunkt</div>
-            </div>
-        </div>
-    </section>
+---
+import { getCollection } from 'astro:content';
+
+const stats = (await getCollection('stats')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<section class="stats" id="verein">
+  <div class="stats-grid">
+    {stats.map((s) => (
+      <div class="stat-item fade-in">
+        <div class="stat-number">{s.data.wert}</div>
+        <div class="stat-label">{s.data.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

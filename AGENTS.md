@@ -37,7 +37,7 @@ Quick-Lookup. **Erste Anlaufstelle**, bevor du Code suchst.
 | Impressum-Text | [`src/pages/impressum.astro`](./src/pages/impressum.astro) (Vorstand kommt aus `vorstand.json`, Adresse aus `verein.json`) |
 | Datenschutz-Text | [`src/pages/datenschutz.astro`](./src/pages/datenschutz.astro) (Adresse + E-Mail aus `verein.json`) |
 | Hero-Tagline | [`src/components/Hero.astro`](./src/components/Hero.astro) (hartcodiert) |
-| Stats-Zahlen (60 Jahre, 45 Mitglieder, ...) | [`src/components/Stats.astro`](./src/components/Stats.astro) (hartcodiert) |
+| Stats-Zahlen (60 Jahre, 45 Mitglieder, ...) | [`src/data/stats.json`](./src/data/stats.json) |
 | **Cookie-Banner-Konfiguration** | [`public/klaro/klaro-config.js`](./public/klaro/klaro-config.js) (Services, deutsche Texte) |
 | Cookie-Banner-Styling | `src/styles/global.css` — Block „Klaro Privacy Manager – Theme" |
 | **Bilder/Medien** | [`public/images/`](./public/images/) — neue Bilder hier ablegen, im Markdown als `/images/...` referenzieren (`assetUrl()` macht den Rest) |
@@ -328,7 +328,7 @@ Wenn man trotzdem aufraeumen will: Zod-Import auf `import { z } from 'astro/zod'
 
 ## Known Limitations / Kleine Schulden
 
-- **Hero + Stats** sind hartcodierte Komponenten — wenn Texte/Zahlen aktuell gehalten werden sollen, sollten sie auch in eine Collection wandern (siehe TODO.md).
+- **Hero** ist eine hartcodierte Komponente — wenn die Tagline pflegbar werden soll, in eine Section/Collection ziehen (siehe TODO.md).
 - **Inline-Styles** sind in vielen Komponenten noch reichlich vorhanden (1:1 aus dem Single-File-Entwurf uebernommen). Refactor in CSS-Klassen ist „nice to have", aber funktional irrelevant.
 - **Stats-Counter-Animation** (`data-target`-Attribut) wird im aktuellen JS nicht angesprochen — Zahlen sind statisch.
 - **`mitgliedschaften`** ist in der `sections`-Collection und hat eine eigene Detail-Seite, taucht aber bewusst nicht in der Navbar auf (`navLabel` ist nicht gesetzt). Wenn das doch erwuenscht ist: `navLabel: Mitgliedschaften` in `sections/mitgliedschaften.md` setzen.

@@ -1,0 +1,6 @@
+[
+  { "id": "tradition",  "wert": "60", "label": "Jahre Tradition",         "order": 1 },
+  { "id": "mitglieder", "wert": "45", "label": "Aktive Mitglieder",       "order": 2 },
+  { "id": "trainings",  "wert": "2",  "label": "Trainings pro Woche",     "order": 3 },
+  { "id": "llsp",       "wert": "1",  "label": "Landesleistungsstützpunkt","order": 4 }
+]
