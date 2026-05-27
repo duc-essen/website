@@ -12,27 +12,67 @@ const { section, isStandalone = false } = Astro.props;
 
 const preise = (await getCollection('preise')).sort((a, b) => a.data.order - b.data.order);
 ---
-<section class="preise" id={section.id} style="background: var(--gray-light);">
+<section class="preise preise-section" id={section.id}>
   <div class="section-title">
     <h2>{section.data.title}</h2>
     {section.data.subtitle && <p>{section.data.subtitle}</p>}
   </div>
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <div class="features-grid" style="margin-bottom: 3rem;">
+  <div class="preise-container">
+    <div class="features-grid preise-grid">
       {preise.map((p) => (
-        <div class="feature-card fade-in" style="text-align: center;">
-          <div style="margin-bottom: 1rem;"><Icon catalog="price" name={p.data.icon} /></div>
-          <h3 style="color: var(--blue);">{p.data.gruppe}</h3>
-          <p style="font-size: 2.5rem; font-weight: 800; color: var(--blue); margin: 1rem 0;">{p.data.preis_monat}</p>
-          <p style="color: var(--gray);">pro Monat</p>
-          <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;">({p.data.preis_quartal} / Quartal)</p>
+        <div class="feature-card fade-in preis-card">
+          <div class="preis-icon"><Icon catalog="price" name={p.data.icon} /></div>
+          <h3 class="preis-gruppe">{p.data.gruppe}</h3>
+          <p class="preis-betrag">{p.data.preis_monat}</p>
+          <p class="preis-period">pro Monat</p>
+          <p class="preis-quartal">({p.data.preis_quartal} / Quartal)</p>
         </div>
       ))}
     </div>
     {section.data.cta && (
-      <div style="text-align: center; margin-top: 2rem;">
+      <div class="preis-cta">
         <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
       </div>
     )}
   </div>
 </section>
+
+<style>
+  .preise-section {
+    background: var(--gray-light);
+  }
+  .preise-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .preise-grid {
+    margin-bottom: 3rem;
+  }
+  .preis-card {
+    text-align: center;
+  }
+  .preis-icon {
+    margin-bottom: 1rem;
+  }
+  .preis-gruppe {
+    color: var(--blue);
+  }
+  .preis-betrag {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--blue);
+    margin: 1rem 0;
+  }
+  .preis-period {
+    color: var(--gray);
+  }
+  .preis-quartal {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  .preis-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

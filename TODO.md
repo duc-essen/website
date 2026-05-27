@@ -56,10 +56,6 @@ Pakete:
 
 - [ ] Aktuell statische Zahlen. Optional: IntersectionObserver-basierter Counter (Animation von 0 bis Zielwert beim Scrollen in den Viewport). `Stats.astro` muesste `target`-Feld aus Schema unterstuetzen und JS im BaseLayout erweitern.
 
-### Inline-Styles in CSS-Klassen ziehen
-
-- [ ] In `Veranstaltungen`, `Preise`, `Kontakt`, `Mitgliedschaften` noch viele `style="..."`-Attribute (1:1 aus dem Single-File-Entwurf). Refactor in CSS-Klassen — nice-to-have.
-
 ### `.fade-in`-Animation
 
 - [ ] Aktuell pro Karte → Karten flackern beim Scroll asynchron. Stattdessen pro Container-Sektion observieren.
@@ -84,6 +80,7 @@ Pakete:
 
 ## Erledigt (Referenz)
 
+- **Inline-Styles eliminiert:** 36 `style="..."`-Attribute aus 9 Komponenten in scoped `<style>`-Bloecke ueberfuehrt. Markup ist jetzt sauber, dev-tools-friendly.
 - **Icon-System konsolidiert:** Slug-Enums in `src/types/icons.ts`, alle SVGs in `src/components/icons.ts` (Map), eine generische `Icon.astro` ersetzt 5 spezialisierte Icon-Komponenten. ~110 Zeilen Duplikation entfernt.
 - **Non-Null-Assertions** in Training/Kontakt durch defensive Checks ersetzt — bei falscher Verkabelung schlaegt der Build mit klarer Meldung fehl statt zur Render-Zeit mit „undefined is not an object".
 - **`<CtaButton />`-Komponente** ersetzt alle 6 direkten `<a class="btn btn-primary">`-Stellen in Hero, Angebote, Training, Geschichte, Preise. Inklusive ctaHref()-Logik intern, externe URLs (http/mailto/tel) werden 1:1 durchgereicht.

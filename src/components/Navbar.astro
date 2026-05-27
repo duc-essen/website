@@ -18,7 +18,7 @@ const logoHref = pathTo('');
 ---
 <nav id="navbar" class:list={{ scrolled: isStandalone }}>
   <div class="logo">
-    <a href={logoHref} aria-label="Zur Startseite" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+    <a href={logoHref} aria-label="Zur Startseite" class="logo-link">
       <DucLogo class="nav-logo-svg" />
       <span class="logo-text">DUC ESSEN</span>
     </a>
@@ -35,3 +35,12 @@ const logoHref = pathTo('');
     <span></span>
   </div>
 </nav>
+
+<style>
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+  }
+</style>

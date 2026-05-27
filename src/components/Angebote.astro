@@ -32,7 +32,7 @@ const rendered = await Promise.all(
     ))}
   </div>
   {section.data.cta && (
-    <div style="text-align: center; margin-top: 3rem;">
+    <div class="angebote-cta">
       <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
     </div>
   )}
@@ -42,5 +42,9 @@ const rendered = await Promise.all(
   .card-text :global(p) {
     color: var(--gray);
     margin: 0;
+  }
+  .angebote-cta {
+    text-align: center;
+    margin-top: 3rem;
   }
 </style>

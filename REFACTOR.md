@@ -33,7 +33,7 @@ Seit der ersten Review zwischendurch erledigt: **Stats-Daten** sind jetzt in `sr
 
 ---
 
-## 🔴 1. Inline-Styles raus → CSS-Klassen
+## ✅ 1. Inline-Styles raus → CSS-Klassen — ERLEDIGT
 
 **Befund:** 43 Inline-`style="..."`-Stellen, hauptsaechlich in Veranstaltungen, Preise, Kontakt, Mitgliedschaften, Footer — 1:1-Uebernahme aus dem Single-File-Entwurf.
 

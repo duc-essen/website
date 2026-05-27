@@ -37,8 +37,15 @@ const rendered = await Promise.all(
     ))}
   </div>
   {section.data.cta && (
-    <div style="text-align: center; margin-top: 2rem;">
+    <div class="geschichte-cta">
       <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
     </div>
   )}
 </section>
+
+<style>
+  .geschichte-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

@@ -13,38 +13,50 @@ const items = (await getCollection('mitgliedschaften')).sort(
   (a, b) => a.data.order - b.data.order
 );
 ---
-<section class="mitgliedschaften" id={section.id} style="background: var(--gray-light); padding: 3rem 5%; text-align: center;">
-  <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">
-    {section.data.title}
-  </p>
-  <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+<section class="mitgliedschaften" id={section.id}>
+  <p class="mitgliedschaften-heading">{section.data.title}</p>
+  <div class="mitgliedschaften-grid">
     {items.map((item) => (
-      <a
-        href={item.data.url}
-        target="_blank"
-        rel="noopener"
-        class="mitgliedschaft-card"
-      >
-        <div style="background: white; padding: 1.5rem 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; min-width: 200px;">
+      <a href={item.data.url} target="_blank" rel="noopener" class="mitgliedschaft-card">
+        <div class="mitgliedschaft-card-inner">
           <img
             src={assetUrl(item.data.logoUrl)}
             alt={item.data.name}
-            style="height: 40px; width: auto; max-width: 80px; margin-bottom: 0.5rem; object-fit: contain;"
+            class="mitgliedschaft-logo"
           />
-          <div style="font-weight: 700; color: var(--blue); font-size: 1.3rem;">{item.data.name}</div>
-          <div style="font-size: 0.75rem; color: var(--gray);">{item.data.untertitel}</div>
+          <div class="mitgliedschaft-name">{item.data.name}</div>
+          <div class="mitgliedschaft-sub">{item.data.untertitel}</div>
         </div>
       </a>
     ))}
   </div>
   {section.data.mitgliedschaften_footer && (
-    <p style="color: var(--blue); font-weight: 600; margin-top: 1.5rem; font-size: 0.95rem;">
-      {section.data.mitgliedschaften_footer}
-    </p>
+    <p class="mitgliedschaften-footer">{section.data.mitgliedschaften_footer}</p>
   )}
 </section>
 
 <style>
+  .mitgliedschaften {
+    background: var(--gray-light);
+    padding: 3rem 5%;
+    text-align: center;
+  }
+  .mitgliedschaften-heading {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .mitgliedschaften-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .mitgliedschaft-card {
     text-decoration: none;
     transition: transform 0.3s ease;
@@ -52,5 +64,35 @@ const items = (await getCollection('mitgliedschaften')).sort(
   }
   .mitgliedschaft-card:hover {
     transform: scale(1.05);
+  }
+  .mitgliedschaft-card-inner {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 200px;
+  }
+  .mitgliedschaft-logo {
+    height: 40px;
+    width: auto;
+    max-width: 80px;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+  }
+  .mitgliedschaft-name {
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.3rem;
+  }
+  .mitgliedschaft-sub {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+  .mitgliedschaften-footer {
+    color: var(--blue);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
   }
 </style>

@@ -15,7 +15,7 @@ const sections = (await getCollection('sections'))
     <div class="footer-section">
       <h4>{verein.shortName}</h4>
       <p>{verein.name}<br>{verein.traegervereinHinweis}</p>
-      <p style="margin-top: 1rem;"><strong>Postanschrift:</strong><br>{verein.anschrift.postfach}<br>{verein.anschrift.plzOrt}</p>
+      <p class="footer-postanschrift"><strong>Postanschrift:</strong><br>{verein.anschrift.postfach}<br>{verein.anschrift.plzOrt}</p>
     </div>
     <div class="footer-section">
       <h4>Vorstand</h4>
@@ -35,12 +35,12 @@ const sections = (await getCollection('sections'))
       <p>{verein.name}</p>
       <p>Registergericht: {verein.registergericht}</p>
       <p>Registernummer: {verein.registernummer}</p>
-      <a href={pathTo('impressum')} style="margin-top: 1rem; display: inline-block;">Impressum</a>
-      <a href={pathTo('datenschutz')} style="display: inline-block;">Datenschutz</a>
+      <a href={pathTo('impressum')} class="footer-recht-link footer-recht-first">Impressum</a>
+      <a href={pathTo('datenschutz')} class="footer-recht-link">Datenschutz</a>
       <a
         href="#"
         onclick="event.preventDefault(); window.klaro && window.klaro.show();"
-        style="display: inline-block;"
+        class="footer-recht-link"
       >Cookie-Einstellungen</a>
     </div>
   </div>
@@ -48,3 +48,15 @@ const sections = (await getCollection('sections'))
     <p>&copy; <span id="currentYear"></span> Deutscher Unterwasserclub Essen e.V. - Alle Rechte vorbehalten</p>
   </div>
 </footer>
+
+<style>
+  .footer-postanschrift {
+    margin-top: 1rem;
+  }
+  .footer-recht-link {
+    display: inline-block;
+  }
+  .footer-recht-first {
+    margin-top: 1rem;
+  }
+</style>
