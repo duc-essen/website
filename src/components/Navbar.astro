@@ -16,7 +16,7 @@ const sectionHref = (slug: string) => (isStandalone ? pathTo(slug) : `#${slug}`)
 const homeHref = isStandalone ? pathTo('') : '#home';
 const logoHref = pathTo('');
 ---
-<nav id="navbar">
+<nav id="navbar" class:list={{ scrolled: isStandalone }}>
   <div class="logo">
     <a href={logoHref} aria-label="Zur Startseite" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
       <DucLogo class="nav-logo-svg" />

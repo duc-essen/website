@@ -160,10 +160,16 @@ const ogImage = 'https://duc-essen.de/wp-content/uploads/2024/02/Home-1-b.jpg';
         });
       }
 
-      // Navbar scroll effect
+      // Navbar scroll effect. Auf Detail-Seiten (!isOnePager) bleibt die
+      // Navbar immer „scrolled" — sonst waere sie transparent vor weissem
+      // Hintergrund und das Logo wuerde verschwinden.
       const navbar = document.getElementById('navbar');
       const onScroll = () => {
         if (!navbar) return;
+        if (!isOnePager) {
+          navbar.classList.add('scrolled');
+          return;
+        }
         if (window.scrollY > 100) navbar.classList.add('scrolled');
         else navbar.classList.remove('scrolled');
       };
