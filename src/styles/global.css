@@ -1120,3 +1120,98 @@
             width: 3rem;
             height: 3rem;
         }
+
+        /* ========================================================
+           Klaro Privacy Manager – Theme passend zur DUC-Site
+           (blau #004F9E + gold #FFD400, Default-Klaro-Gruen weg).
+           ======================================================== */
+
+        /* Banner unten links statt rechts — sonst kollidiert es mit
+           dem Back-to-Top-Button rechts unten. */
+        .klaro .cookie-notice:not(.cookie-modal-notice) {
+            right: auto !important;
+            left: 20px !important;
+            bottom: 20px !important;
+            max-width: 420px;
+            background: var(--blue-dark) !important;
+            color: var(--white) !important;
+            border-radius: 14px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Modal (Detail-Einstellungen) */
+        .klaro .cookie-modal .cm-modal {
+            background: var(--blue-dark) !important;
+            color: var(--white) !important;
+            border-radius: 16px !important;
+        }
+        .klaro .cookie-modal .cm-header h1,
+        .klaro .cookie-modal .cm-body h2,
+        .klaro .cookie-modal .cm-list-label,
+        .klaro .cookie-notice .cn-title,
+        .klaro .cookie-notice strong {
+            color: var(--gold) !important;
+        }
+
+        /* Buttons */
+        .klaro .cm-btn {
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            padding: 0.6rem 1.4rem !important;
+            transition: all 0.2s ease !important;
+        }
+        .klaro .cm-btn.cm-btn-success,
+        .klaro .cm-btn.cm-btn-accept-all {
+            background: var(--gold) !important;
+            color: var(--blue-dark) !important;
+        }
+        .klaro .cm-btn.cm-btn-success:hover,
+        .klaro .cm-btn.cm-btn-accept-all:hover {
+            background: #ffdd33 !important;
+        }
+        .klaro .cm-btn.cm-btn-accept {
+            background: var(--blue-light) !important;
+            color: var(--white) !important;
+        }
+        .klaro .cm-btn.cm-btn-decline {
+            background: transparent !important;
+            color: var(--white) !important;
+            border: 2px solid rgba(255, 255, 255, 0.4) !important;
+        }
+        .klaro .cm-btn.cm-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Toggle-Switches in der Detail-Liste */
+        .klaro .cm-list-input:checked + .cm-list-label .slider {
+            background: var(--gold) !important;
+        }
+        .klaro .cm-list-input:checked + .cm-list-label .slider::before {
+            background: var(--blue-dark) !important;
+        }
+
+        /* Links */
+        .klaro .cookie-modal a,
+        .klaro .cookie-notice a {
+            color: var(--gold) !important;
+        }
+
+        /* Inline-Placeholder fuer geblockte Iframes (Maps / Vereinsplaner) */
+        .klaro .cm-as-context-notice {
+            background: var(--gray-light) !important;
+            border: 1px dashed var(--blue) !important;
+            color: var(--blue-dark) !important;
+            padding: 2rem !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+        }
+        .klaro .cm-as-context-notice .cm-btn-success {
+            background: var(--gold) !important;
+            color: var(--blue-dark) !important;
+        }
+
+        /* Back-to-Top in den Hintergrund schicken solange Banner offen ist */
+        body.klaro-notice-open .back-to-top {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
