@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import EventIcon from './icons/EventIcon.astro';
+import type { EventIconName } from '../types/icons';
 
 interface Props {
   section: CollectionEntry<'sections'>;
@@ -32,7 +33,6 @@ if (fillCount > 0) {
 }
 
 // Icon-Slug aus dem SUMMARY raten.
-type EventIconName = 'calendar' | 'ship' | 'video' | 'goggles' | 'pool' | 'waves';
 function guessIcon(summary: string): EventIconName {
   const s = summary.toLowerCase();
   if (/mare|mont|stammt/.test(s)) return 'pool';

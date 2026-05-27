@@ -1,6 +1,12 @@
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { vereinsplanerLoader } from './loaders/vereinsplaner';
+import {
+  ANGEBOT_ICONS,
+  TIMELINE_ICONS,
+  PRICE_ICONS,
+  KONTAKT_ICONS,
+} from './types/icons';
 
 // Sections: Metadaten + section-spezifische Strukturdaten pro Top-Level-Sektion.
 // Steuert sowohl den One-Pager (/) als auch die Detail-Seiten (/<slug>).
@@ -31,7 +37,7 @@ const sections = defineCollection({
       .object({
         items: z.array(
           z.object({
-            icon: z.enum(['pin', 'pool', 'mail', 'clock']),
+            icon: z.enum(KONTAKT_ICONS),
             label: z.string(),
             text: z.string(),
           })
@@ -50,7 +56,7 @@ const angebote = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/angebote' }),
   schema: z.object({
     titel: z.string(),
-    icon: z.enum(['freitauchen', 'hallenbad', 'freiwasser', 'wettkampf', 'clubfahrten', 'app']),
+    icon: z.enum(ANGEBOT_ICONS),
     order: z.number(),
   }),
 });
@@ -104,7 +110,7 @@ const geschichte = defineCollection({
   schema: z.object({
     jahr: z.string(),
     titel: z.string(),
-    icon: z.enum(['diver', 'document', 'trophy', 'compass', 'star', 'medal']),
+    icon: z.enum(TIMELINE_ICONS),
     highlight: z.boolean().default(false),
     order: z.number(),
   }),
@@ -127,7 +133,7 @@ const preise = defineCollection({
     gruppe: z.string(),
     preis_monat: z.string(),
     preis_quartal: z.string(),
-    icon: z.enum(['erwachsene', 'familie', 'jugend']),
+    icon: z.enum(PRICE_ICONS),
     order: z.number(),
   }),
 });
