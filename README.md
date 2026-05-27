@@ -8,7 +8,10 @@ Single-File-HTML-Entwurf (`index.html`). Geplant: Migration auf [Astro](https://
 
 ## Pflege
 
-Die Inhalte werden LLM-gestützt gepflegt (Markdown-zentrierter Workflow). Architektur- und Migrations-Kontext liegt im internen Verwaltungs-Repo des Vereins.
+Die Inhalte werden LLM-gestützt gepflegt (Markdown-zentrierter Workflow).
+
+Architektur- und Migrations-Kontext liegt im internen Verwaltungs-Repo des Vereins:
+**[Wiki-Artikel: Website-Migration Astro + GitHub Pages](https://github.com/martjn-net/deutscher_unterwasserclub_essen/blob/main/wiki/concepts/website-migration-astro-github-pages.md)** (Zugriff nur für Vereinsmitglieder).
 
 ## Lokale Vorschau
 
