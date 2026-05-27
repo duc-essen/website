@@ -36,7 +36,8 @@ export interface VereinsplanerLoaderOptions {
 
 function matchesMode(summary: string, mode: 'public' | 'training'): boolean {
   if (mode === 'training') {
-    return /^training/i.test(summary);
+    // DUC-Trainings, aber keine TSV-Termine (TSV NRW ist eigener Verband)
+    return /^training/i.test(summary) && !/\btsv\b/i.test(summary);
   }
   // public: alles ausser interne Termine
   return (
