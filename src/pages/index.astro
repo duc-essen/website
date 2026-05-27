@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Angebote from '../components/Angebote.astro';
+import Training from '../components/Training.astro';
+import Geschichte from '../components/Geschichte.astro';
+import Stats from '../components/Stats.astro';
+import Veranstaltungen from '../components/Veranstaltungen.astro';
+import Preise from '../components/Preise.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Mitgliedschaften from '../components/Mitgliedschaften.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Navbar />
+  <main id="main-content">
+    <Hero />
+    <Angebote />
+    <Training />
+    <Geschichte />
+    <Stats />
+    <Veranstaltungen />
+    <Preise />
+    <Kontakt />
+  </main>
+  <Mitgliedschaften />
+  <Footer />
+</BaseLayout>
