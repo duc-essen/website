@@ -1,11 +1,30 @@
 {
   "name": "Deutscher Unterwasserclub Essen e.V.",
   "shortName": "DUC Essen",
+  "webUrl": "https://duc-essen.de",
+  "description": "Tauchverein in Essen für Tauchen, Apnoe, Freediving und Flossenschwimmen. Mitglied im VDST.",
+  "sportarten": ["Tauchen", "Apnoe", "Freediving", "Flossenschwimmen"],
+  "verband": {
+    "name": "Verband Deutscher Sporttaucher e.V.",
+    "kuerzel": "VDST"
+  },
   "anschrift": {
     "postfach": "Postfach 34 01 51",
     "plzOrt": "45073 Essen",
     "land": "Deutschland"
   },
+  "trainingStandort": {
+    "name": "Stadtbad Nord-Ost",
+    "strasse": "Schonnebeckhöfe 60",
+    "plz": "45309",
+    "ort": "Essen",
+    "lat": 51.4818,
+    "lng": 7.0503
+  },
+  "trainingszeiten": [
+    { "wochentag": "Tuesday",  "von": "20:00", "bis": "22:00" },
+    { "wochentag": "Thursday", "von": "20:15", "bis": "22:00" }
+  ],
   "email": "katharina@duc-essen.de",
   "emailDatenschutz": "info@duc-essen.de",
   "registergericht": "Amtsgericht Essen",

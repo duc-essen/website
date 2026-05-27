@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap-Index (generiert von @astrojs/sitemap zur Build-Zeit)
-Sitemap: https://duc-essen.github.io/duc-website/sitemap-index.xml
+# Sitemap (sitemap.xml ist ein Alias auf sitemap-index.xml, fuer Crawler
+# die den Standardpfad erwarten)
+Sitemap: https://duc-essen.github.io/duc-website/sitemap.xml

@@ -62,10 +62,6 @@ Hero ist aktuell hartcodiert in `src/components/Hero.astro` (Headline, Subtitle,
 
 - [ ] Aktuell statische Zahlen. Optional: IntersectionObserver-basierter Counter (Animation von 0 bis Zielwert beim Scrollen in den Viewport). `Stats.astro` muesste `target`-Feld aus Schema unterstuetzen und JS im BaseLayout erweitern.
 
-### `verein.json` weiter nutzen
-
-- [ ] BaseLayout-JSON-LD (`SportsClub`-Strukturdaten) liest aktuell hartcodiert Vereinsname, Adresse, E-Mail. Sollte aus `verein.json` kommen. Adress-Aenderung wuerde sonst dort verfehlt.
-
 ### Inline-Styles in CSS-Klassen ziehen
 
 - [ ] In `Veranstaltungen`, `Preise`, `Kontakt`, `Mitgliedschaften` noch viele `style="..."`-Attribute (1:1 aus dem Single-File-Entwurf). Refactor in CSS-Klassen — nice-to-have.
@@ -94,7 +90,8 @@ Hero ist aktuell hartcodiert in `src/components/Hero.astro` (Headline, Subtitle,
 
 ## Erledigt (Referenz)
 
-- **Sitemap + robots.txt** via `@astrojs/sitemap` — `sitemap-index.xml` und `sitemap-0.xml` mit allen 10 URLs werden automatisch erzeugt.
+- **JSON-LD `SportsClub`** liest jetzt komplett aus `verein.json` (Name, Adresse, Geo, Sportarten, VDST-Mitgliedschaft, Trainingszeiten). Single source of truth funktioniert auch fuer Strukturdaten.
+- **Sitemap + robots.txt** via `@astrojs/sitemap` — `sitemap-index.xml`, `sitemap-0.xml` und Alias `sitemap.xml` (via Custom Astro-Integration in `astro.config.mjs`).
 - **Stats sind aus `src/data/stats.json` pflegbar** (vorher hartcodiert).
 - **Termine-Sektion** zeigt jetzt max. 6 Eintraege als kombinierte Liste (zukuenftige + ggf. vergangene). Vergangene visuell markiert (graue Kachel + „vergangen"-Badge). `Training TSV` faellt aus der Trainings-Liste raus (kein DUC-Termin).
 - **Veranstaltungen kommen jetzt LIVE aus dem Vereinsplaner-iCal-Feed.** Vorstand pflegt nur dort, Astro-Build holt + filtert, taegliches Cron-Rebuild.

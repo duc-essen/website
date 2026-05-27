@@ -1,6 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { copyFileSync } from 'node:fs';
+
+// Kleine Integration: nach dem Build kopiert sie sitemap-index.xml zu
+// sitemap.xml. Crawler erwarten den klassischen Pfad /sitemap.xml.
+const sitemapAlias = {
+  name: 'sitemap-alias',
+  hooks: {
+    'astro:build:done': ({ dir }) => {
+      copyFileSync(
+        new URL('sitemap-index.xml', dir),
+        new URL('sitemap.xml', dir)
+      );
+    },
+  },
+};
 
 // https://astro.build/config
 //
@@ -16,5 +31,5 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), sitemapAlias],
 });

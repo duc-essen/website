@@ -199,7 +199,16 @@ url?: string
 Filter-Logik in [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts) anpassen.
 
 ### `verein` (`src/data/verein.json`) — kein Schema, direkter Import
-Einzelnes JSON-Objekt mit `name`, `shortName`, `anschrift {postfach, plzOrt, land}`, `email`, `emailDatenschutz`, `registergericht`, `registernummer`, `traegervereinHinweis`. Wird per `import verein from '../data/verein.json'` aus Footer, Impressum und Datenschutz gelesen. Single source of truth fuer Vereinsstammdaten.
+Einzelnes JSON-Objekt, single source of truth fuer Vereinsstammdaten. Wird per `import verein from '../data/verein.json'` aus Footer, Impressum, Datenschutz **und JSON-LD im BaseLayout** gelesen. Felder:
+
+- Stammdaten: `name`, `shortName`, `webUrl`, `description`
+- Sport: `sportarten[]`, `verband { name, kuerzel }`
+- Postanschrift (Impressum): `anschrift { postfach, plzOrt, land }`
+- Trainingsort (JSON-LD address): `trainingStandort { name, strasse, plz, ort, lat, lng }`
+- Trainingszeiten (JSON-LD): `trainingszeiten[] { wochentag, von, bis }`
+- Kontakt: `email`, `emailDatenschutz`
+- Vereinsregister: `registergericht`, `registernummer`
+- Footer-Slogan: `traegervereinHinweis`
 
 ---
 
