@@ -28,6 +28,8 @@ export function ctaHref(
   isStandalone: boolean
 ): string | undefined {
   if (!href) return undefined;
+  // Externe Links / Mail / Telefon werden 1:1 durchgereicht.
+  if (/^(https?:|mailto:|tel:)/.test(href)) return href;
   const slug = href.replace(/^[#/]+/, '');
   return isStandalone ? pathTo(slug) : `#${slug}`;
 }

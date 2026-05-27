@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { ctaHref, assetUrl } from '../utils/url';
+import { assetUrl } from '../utils/url';
+import CtaButton from './CtaButton.astro';
 
 interface Props {
   section: CollectionEntry<'sections'>;
@@ -9,7 +10,6 @@ interface Props {
 const { section, isStandalone = false } = Astro.props;
 
 const t = section.data.training!;
-const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
 ---
 <section class="training" id={section.id}>
   <div class="section-title">
@@ -28,10 +28,10 @@ const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
           </div>
         ))}
       </div>
-      {section.data.cta && ctaLink && (
-        <a href={ctaLink} class="btn btn-primary" style="margin-top: 2rem;">
-          {section.data.cta.text}
-        </a>
+      {section.data.cta && (
+        <div style="margin-top: 2rem;">
+          <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
+        </div>
       )}
     </div>
     <div class="training-visual fade-in">

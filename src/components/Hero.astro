@@ -1,15 +1,12 @@
 ---
 import DucLogo from './DucLogo.astro';
-import { ctaHref } from '../utils/url';
+import CtaButton from './CtaButton.astro';
 import hero from '../data/hero.json';
 
 interface Props {
   isStandalone?: boolean;
 }
 const { isStandalone = false } = Astro.props;
-
-const primaryHref = ctaHref(hero.ctaPrimary.href, isStandalone)!;
-const secondaryHref = ctaHref(hero.ctaSecondary.href, isStandalone)!;
 ---
 <section class="hero" id="home">
   <div class="hero-content">
@@ -23,8 +20,8 @@ const secondaryHref = ctaHref(hero.ctaSecondary.href, isStandalone)!;
     <h1>{hero.titleLine1}<span>{hero.titleLine2}</span></h1>
     <p>{hero.tagline}</p>
     <div class="cta-buttons">
-      <a href={primaryHref} class="btn btn-primary">{hero.ctaPrimary.text}</a>
-      <a href={secondaryHref} class="btn btn-secondary">{hero.ctaSecondary.text}</a>
+      <CtaButton cta={hero.ctaPrimary} variant="primary" isStandalone={isStandalone} />
+      <CtaButton cta={hero.ctaSecondary} variant="secondary" isStandalone={isStandalone} />
     </div>
   </div>
   <div class="scroll-indicator">

@@ -1,0 +1,50 @@
+---
+import { ctaHref } from '../utils/url';
+
+/**
+ * Einheitlicher Call-to-Action-Button.
+ *
+ * - `href` kann ein Section-Slug ("kontakt"), Anchor ("#kontakt"), Pfad
+ *   ("/kontakt") oder externe URL ("https://...", "mailto:..") sein.
+ * - Im One-Pager-Mode (`isStandalone=false`, default) werden Section-Slugs
+ *   zu Anchor-Links (`#kontakt`) fuer Smooth-Scroll.
+ * - Auf Detail-Seiten (`isStandalone=true`) werden sie zu absoluten Pfaden.
+ * - Externe URLs werden 1:1 durchgereicht.
+ *
+ * Aliasing: nimmt entweder einzelne Props `text`/`href` oder ein `cta`-Objekt
+ * mit beidem (passt zu `section.data.cta` aus dem `sections`-Schema).
+ */
+interface Props {
+  cta?: { text: string; href: string };
+  text?: string;
+  href?: string;
+  variant?: 'primary' | 'secondary';
+  isStandalone?: boolean;
+  target?: '_blank';
+  class?: string;
+}
+
+const {
+  cta,
+  text = cta?.text,
+  href = cta?.href,
+  variant = 'primary',
+  isStandalone = false,
+  target,
+  class: extraClass = '',
+} = Astro.props;
+
+if (!text || !href) {
+  // Kein CTA-Inhalt → nichts rendern. Komponente kann konditional eingebunden
+  // werden ohne dass der Caller selbst pruefen muss.
+  // (Astro rendert null silent.)
+}
+
+const resolved = href ? ctaHref(href, isStandalone) : undefined;
+const rel = target === '_blank' ? 'noopener' : undefined;
+---
+{text && resolved && (
+  <a href={resolved} class:list={['btn', `btn-${variant}`, extraClass]} target={target} rel={rel}>
+    {text}
+  </a>
+)}

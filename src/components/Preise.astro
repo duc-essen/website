@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import PriceIcon from './icons/PriceIcon.astro';
-import { ctaHref } from '../utils/url';
+import CtaButton from './CtaButton.astro';
 
 interface Props {
   section: CollectionEntry<'sections'>;
@@ -11,7 +11,6 @@ interface Props {
 const { section, isStandalone = false } = Astro.props;
 
 const preise = (await getCollection('preise')).sort((a, b) => a.data.order - b.data.order);
-const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
 ---
 <section class="preise" id={section.id} style="background: var(--gray-light);">
   <div class="section-title">
@@ -30,9 +29,9 @@ const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
         </div>
       ))}
     </div>
-    {section.data.cta && ctaLink && (
+    {section.data.cta && (
       <div style="text-align: center; margin-top: 2rem;">
-        <a href={ctaLink} class="btn btn-primary">{section.data.cta.text}</a>
+        <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
       </div>
     )}
   </div>

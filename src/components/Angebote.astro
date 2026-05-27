@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import AngebotIcon from './icons/AngebotIcon.astro';
-import { ctaHref } from '../utils/url';
+import CtaButton from './CtaButton.astro';
 
 interface Props {
   section: CollectionEntry<'sections'>;
@@ -16,8 +16,6 @@ const angebote = (await getCollection('angebote')).sort(
 const rendered = await Promise.all(
   angebote.map(async (a) => ({ entry: a, Content: (await render(a)).Content }))
 );
-
-const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
 ---
 <section class="features" id={section.id}>
   <div class="section-title">
@@ -33,9 +31,9 @@ const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
       </div>
     ))}
   </div>
-  {section.data.cta && ctaLink && (
+  {section.data.cta && (
     <div style="text-align: center; margin-top: 3rem;">
-      <a href={ctaLink} class="btn btn-primary">{section.data.cta.text}</a>
+      <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
     </div>
   )}
 </section>

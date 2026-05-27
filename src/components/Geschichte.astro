@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import TimelineIcon from './icons/TimelineIcon.astro';
-import { ctaHref } from '../utils/url';
+import CtaButton from './CtaButton.astro';
 
 interface Props {
   section: CollectionEntry<'sections'>;
@@ -16,8 +16,6 @@ const entries = (await getCollection('geschichte')).sort(
 const rendered = await Promise.all(
   entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content }))
 );
-
-const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
 ---
 <section class="geschichte" id={section.id}>
   <div class="section-title">
@@ -38,9 +36,9 @@ const ctaLink = ctaHref(section.data.cta?.href, isStandalone);
       </div>
     ))}
   </div>
-  {section.data.cta && ctaLink && (
+  {section.data.cta && (
     <div style="text-align: center; margin-top: 2rem;">
-      <a href={ctaLink} class="btn btn-primary">{section.data.cta.text}</a>
+      <CtaButton cta={section.data.cta} isStandalone={isStandalone} />
     </div>
   )}
 </section>
