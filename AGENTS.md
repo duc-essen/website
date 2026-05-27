@@ -33,7 +33,7 @@ Quick-Lookup. **Erste Anlaufstelle**, bevor du Code suchst.
 | Section-Titel/Subtitle/Navbar-Label/CTA | [`src/content/sections/<slug>.md`](./src/content/sections/) (Frontmatter) |
 | Trainings-Adresse, Schedule, Bilder, Map | `src/content/sections/training.md` (Frontmatter `training:`) |
 | Kontaktdaten + Formular-URL | `src/content/sections/kontakt.md` (Frontmatter `kontakt:`) |
-| Impressum-Text | [`src/pages/impressum.md`](./src/pages/impressum.md) |
+| Impressum-Text | [`src/pages/impressum.astro`](./src/pages/impressum.astro) (Vorstand kommt aus `vorstand.json`) |
 | Datenschutz-Text | [`src/pages/datenschutz.md`](./src/pages/datenschutz.md) |
 | Hero-Tagline | [`src/components/Hero.astro`](./src/components/Hero.astro) (hartcodiert) |
 | Stats-Zahlen (60 Jahre, 45 Mitglieder, ...) | [`src/components/Stats.astro`](./src/components/Stats.astro) (hartcodiert) |
@@ -84,7 +84,7 @@ Quick-Lookup. **Erste Anlaufstelle**, bevor du Code suchst.
 │                                                                      │
 │   src/pages/index.astro       → /                (One-Pager)         │
 │   src/pages/[slug].astro      → /angebote, ...   (Detail je Sect.)   │
-│   src/pages/impressum.md      → /impressum       (LegalLayout)       │
+│   src/pages/impressum.astro   → /impressum       (LegalLayout)       │
 │   src/pages/datenschutz.md    → /datenschutz     (LegalLayout)       │
 └──────────────────────────────────────────────────────────────────────┘
 ```
