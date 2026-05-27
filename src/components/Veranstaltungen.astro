@@ -89,18 +89,34 @@ function splitDescription(desc: string): { untertitel: string; body: string } {
     )}
     {eventList.length === 0 ? (
       <p class="no-events">Aktuell sind keine öffentlichen Termine eingetragen.</p>
+    ) : showVergangene ? (
+      <ul class="trainings-list">
+        {eventList.map((entry) => (
+          <li class="training-row">
+            <div class="training-date training-date-past">
+              <span class="training-weekday">{wochentag.format(entry.data.start)}</span>
+              <span class="training-date-num">{datumKurz.format(entry.data.start)}</span>
+            </div>
+            <div class="training-info">
+              <span class="training-title">{entry.data.summary}</span>
+              <span class="training-time">
+                {datumLong.format(entry.data.start)}
+                {entry.data.location && <span class="training-loc"> · {entry.data.location}</span>}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
     ) : (
       <div class="features-grid">
         {eventList.map((entry) => {
           const icon = guessIcon(entry.data.summary);
           const { untertitel, body } = splitDescription(entry.data.description);
           return (
-            <div class={`feature-card fade-in event-card${showVergangene ? ' event-card-past' : ''}`}>
+            <div class="feature-card fade-in event-card">
               <div class="event-card-header">
                 <EventIcon name={icon} />
-                <span class={`event-badge ${showVergangene ? 'event-badge-grey' : 'event-badge-gold'}`}>
-                  {formatBadge(entry.data.start)}
-                </span>
+                <span class="event-badge event-badge-gold">{formatBadge(entry.data.start)}</span>
               </div>
               <h4 class="event-title">{entry.data.summary}</h4>
               {untertitel && <p class="event-sub">{untertitel}</p>}
@@ -220,9 +236,8 @@ function splitDescription(desc: string): { untertitel: string; body: string } {
     background: var(--gray);
     color: var(--white);
   }
-  .event-card-past {
-    border-top-color: var(--gray) !important;
-    opacity: 0.85;
+  .training-date-past {
+    background: var(--gray) !important;
   }
   .block-hint {
     color: var(--gray);
