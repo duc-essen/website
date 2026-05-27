@@ -4,4 +4,4 @@ icon: hallenbad
 order: 2
 ---
 
-Regelmäßig zweimal die Woche tauchen.
+Zweimal die Woche tauchen.
