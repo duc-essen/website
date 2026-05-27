@@ -1,5 +1,5 @@
 ---
-titel: Freiwasser-Tauchen
+titel: Scuba-Diving
 icon: freiwasser
 order: 3
 ---
