@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap-Index (generiert von @astrojs/sitemap zur Build-Zeit)
+Sitemap: https://duc-essen.github.io/duc-website/sitemap-index.xml

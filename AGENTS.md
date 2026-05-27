@@ -44,7 +44,8 @@ Quick-Lookup. **Erste Anlaufstelle**, bevor du Code suchst.
 | Globales Design / CSS | [`src/styles/global.css`](./src/styles/global.css) |
 | SEO `<head>`, JSON-LD, Favicon, OG-Image | [`src/layouts/BaseLayout.astro`](./src/layouts/BaseLayout.astro) |
 | GitHub-Actions-Workflow | [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) |
-| Astro-Routing/Site/Base | [`astro.config.mjs`](./astro.config.mjs) |
+| Astro-Routing/Site/Base + Sitemap-Integration | [`astro.config.mjs`](./astro.config.mjs) |
+| Crawler-Regeln (Suchmaschinen) | [`public/robots.txt`](./public/robots.txt) (verweist auf `sitemap-index.xml`) |
 | Erlaubte Icon-Slugs erweitern | Schema in `content.config.ts` **und** entsprechende `*Icon.astro`-Komponente in [`src/components/icons/`](./src/components/icons/) |
 
 **Nach Aenderung:** lokal `npm run dev` oder direkt `git commit && git push` — Action validiert + deployt.

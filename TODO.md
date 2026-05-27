@@ -29,11 +29,6 @@ DNS-Zugriff beim Provider steht aktuell aus. Schritt-fuer-Schritt sobald da:
 
 ## Mittel — SEO + Robustheit
 
-### Sitemap + robots.txt
-
-- [ ] `npx astro add sitemap` — generiert `sitemap-index.xml` automatisch fuer alle 10 Seiten.
-- [ ] `public/robots.txt` ergaenzen (mit Hinweis auf Sitemap-URL).
-
 ### Datenschutz-Text mit Vorstand nochmal abgleichen
 
 Der Text ist beim Umzug auf Astro + Klaro durchstrukturiert worden (Cookies-Sektion ist jetzt akkurat: kein Real-Cookie-Banner, sondern Klaro; Google Maps + Vereinsplaner sind opt-in). Sollte vor Custom-Domain-Live nochmal vom Vorstand abgenommen werden.
@@ -99,6 +94,7 @@ Hero ist aktuell hartcodiert in `src/components/Hero.astro` (Headline, Subtitle,
 
 ## Erledigt (Referenz)
 
+- **Sitemap + robots.txt** via `@astrojs/sitemap` — `sitemap-index.xml` und `sitemap-0.xml` mit allen 10 URLs werden automatisch erzeugt.
 - **Stats sind aus `src/data/stats.json` pflegbar** (vorher hartcodiert).
 - **Termine-Sektion** zeigt jetzt max. 6 Eintraege als kombinierte Liste (zukuenftige + ggf. vergangene). Vergangene visuell markiert (graue Kachel + „vergangen"-Badge). `Training TSV` faellt aus der Trainings-Liste raus (kein DUC-Termin).
 - **Veranstaltungen kommen jetzt LIVE aus dem Vereinsplaner-iCal-Feed.** Vorstand pflegt nur dort, Astro-Build holt + filtert, taegliches Cron-Rebuild.
