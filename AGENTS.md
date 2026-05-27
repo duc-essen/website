@@ -274,7 +274,6 @@ npx astro sync       # types fuer Collections regenerieren (selten noetig)
 - **Schema first:** Neue Felder/Werte immer erst in `content.config.ts` deklarieren, sonst Build-Fehler.
 - **Keine externen Tracker / Analytics** ohne explizite Vorstands-Freigabe (Vereinsdatenschutz).
 - **SEO erhalten:** Meta-Tags, Open Graph, JSON-LD `SportsClub` aus `BaseLayout.astro` muessen erhalten bleiben.
-- **`index.html` im Repo-Root** ist der historische Single-File-Entwurf. Bleibt vorerst als Referenz / Quelle, wird entfernt wenn die Astro-Version vom Vorstand abgenommen ist.
 - **Keine destruktiven Git-Aktionen** (force-push, reset --hard) ohne Rueckfrage.
 
 ### LSP-Warnings die man ignorieren kann

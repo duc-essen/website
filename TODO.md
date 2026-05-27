@@ -27,11 +27,6 @@ Der eingebaute Text hat Stand Mai 2018 (von duc-essen.de uebernommen) und beschr
 - [ ] Cookie-Erwaehnung bei Sektion 6 (Google Maps) ueberdenken — wir laden Google Maps direkt im Iframe.
 - [ ] Verbleibender Text mit Vorstand auf Aktualitaet pruefen.
 
-### Legacy `index.html` entfernen
-
-- [ ] Sobald die Astro-Version vom Vorstand abgenommen ist: `rm index.html` im Repo-Root (steht aktuell nur als Migrationsreferenz).
-- [ ] AGENTS.md-Eintrag dazu entfernen.
-
 ---
 
 ## Mittel — SEO + Robustheit
@@ -99,7 +94,7 @@ Die Komponenten `Veranstaltungen`, `Preise`, `Kontakt`, `Mitgliedschaften` haben
 
 ## Erledigt (Referenz)
 
-Astro-Setup, Komponenten-Migration aus `index.html`, GitHub Pages-Deployment, Multi-Page-Architektur mit Detail-Seiten pro Sektion, vollstaendige Markdown/JSON-Pflege fuer alle Sektionen + Items, Icon-Komponenten mit Slug-Enum-Validierung, History API fuer teilbare URLs im One-Pager, Impressum (§ 5 TMG), Datenschutz (Vereins-Text Mai 2018), AGENTS.md / README.md als Onboarding-Doku.
+Astro-Setup, Komponenten-Migration aus dem urspruenglichen Single-File-Entwurf, GitHub Pages-Deployment, Multi-Page-Architektur mit Detail-Seiten pro Sektion, vollstaendige Markdown/JSON-Pflege fuer alle Sektionen + Items, Icon-Komponenten mit Slug-Enum-Validierung, History API fuer teilbare URLs im One-Pager, Impressum (§ 5 TMG), Datenschutz (Vereins-Text Mai 2018), Legacy `index.html` entfernt, AGENTS.md / README.md als Onboarding-Doku.
 
 ---
 
