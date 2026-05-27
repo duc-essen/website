@@ -85,10 +85,10 @@ const veranstaltungen = defineCollection({
   schema: eventSchema,
 });
 
-// Vergangene oeffentliche Termine — als Fallback, falls aktuell keine
-// zukuenftigen anstehen. Limit 4 (kompakter Rueckblick).
+// Vergangene oeffentliche Termine — fuellt die Termine-Liste auf 6 auf,
+// falls weniger zukuenftige Events vorhanden sind.
 const vergangeneTermine = defineCollection({
-  loader: vereinsplanerLoader({ mode: 'public-past', limit: 4 }),
+  loader: vereinsplanerLoader({ mode: 'public-past', limit: 6 }),
   schema: eventSchema,
 });
 
