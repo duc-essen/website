@@ -51,24 +51,23 @@ Ihre Daten werden an Dritte weitergegeben nur wenn:
 - eine gesetzliche Verpflichtung nach Artikel 6 Abs. 1 S. 1 lit. c) DSGVO besteht
 - dies gemäß Artikel 6 Abs. 1 S. 1 lit. b) DSGVO für Vertragsverhältnisse erforderlich ist
 
-## 5. Verwendung von Cookies
+## 5. Cookies und Einwilligungs-Management
 
-Die Website verwendet funktionale (technisch notwendige) Cookies, um die ordnungsgemäße Funktion sicherzustellen. Diese werden bis maximal zwei Jahren gespeichert, dann automatisch gelöscht.
+Diese Website setzt von sich aus **keine Tracking- oder Marketing-Cookies**. Statische Inhalte (Texte, Bilder, Schriftarten) werden direkt von unserem Hosting (GitHub Pages) ausgeliefert.
 
-**Cookies werden benötigt für:**
+**Einwilligungs-Banner (Klaro!):** Wir verwenden den Open-Source-Consent-Manager *Klaro!* (KIProtect GmbH, Berlin, BSD-3-Lizenz), um Ihre Einwilligung für externe Drittanbieter-Dienste einzuholen. Klaro selbst speichert Ihre Auswahl in einem Cookie namens `klaro-consent` (Laufzeit: 1 Jahr). Dieses Cookie ist technisch notwendig, um Ihre Einstellungen zu merken, und überträgt **keine Daten an Dritte**.
 
-- Einbettung der Google Maps Karte
-- Anzeige des Cookie Banners
-
-Sie haben die volle Kontrolle über Cookies durch Ihre Browsereinstellungen. Sie können diese deaktivieren oder löschen. Bei Deaktivierung können möglicherweise nicht alle Funktionen vollumfänglich genutzt werden.
+Ihre Einstellungen können Sie jederzeit über den Link „Cookie-Einstellungen" im Footer ändern.
 
 ## 6. Verwendung von Google Maps
 
-Die Website nutzt Google Maps zur Darstellung eines Lageplans der Trainingseinrichtung am Schwimmbad Essen Nord-Ost. Google Maps wird von Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA betrieben.
+Auf der Trainingsseite zeigen wir optional eine Google-Maps-Karte mit unserer Trainingsadresse. **Google Maps wird erst geladen, wenn Sie aktiv zustimmen** — vorher findet keine Datenübertragung an Google statt.
 
-Durch die Nutzung dieser Website erklären Sie sich mit der Erfassung, Bearbeitung sowie der Nutzung der automatisch erhobenen sowie der von Ihnen eingegebenen Daten durch Google einverstanden.
+Wenn Sie der Einbindung zustimmen, wird die Karte direkt von Google-Servern geladen. Dabei werden u.a. Ihre IP-Adresse, der verwendete Browser und Referer-Daten an Google übertragen. Google Maps wird von Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA betrieben. Weitere Informationen finden Sie in den [Google-Datenschutzhinweisen](https://policies.google.com/privacy).
 
-Weitere Informationen finden Sie unter den Google Maps Nutzungsbedingungen und dem Datenschutz-Center von Google.
+## 6a. Verwendung des Vereinsplaner-Formulars
+
+Auf der Kontaktseite bieten wir ein Anmeldeformular über den Dienst *Vereinsplaner* an. **Auch dieses Formular wird erst nach Ihrer Zustimmung geladen.** Stimmen Sie zu, werden Ihre Eingaben an Vereinsplaner übertragen und dort verarbeitet, damit wir Ihre Anfrage bearbeiten können.
 
 ## 7. Betroffenenrechte
 
@@ -96,14 +95,12 @@ Zusätzlich werden geeignete technische und organisatorische Sicherheitsmaßnahm
 
 ## 10. Aktualität und Änderung dieser Datenschutzerklärung
 
-Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2018.
+Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026 (überarbeitet im Zuge des Umzugs auf GitHub Pages und der Einführung des Klaro-Einwilligungsmanagers).
 
 Bei Weiterentwicklung unserer Website oder Änderung gesetzlicher Vorgaben kann eine Anpassung notwendig werden. Die jeweils aktuelle Version kann jederzeit auf der Webseite abgerufen und ausgedruckt werden.
 
-## 11. Bestehen einer automatisierten Entscheidungsfindung
+## 11. Hosting
 
-Zur Verwaltung von Cookies und ähnlichen Technologien wird das Consent Tool „Real Cookie Banner" eingesetzt. Details finden Sie unter [https://devowl.io/de/rcb/datenverarbeitung/](https://devowl.io/de/rcb/datenverarbeitung/).
+Diese Website wird über [GitHub Pages](https://pages.github.com/) (GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) ausgeliefert. Beim Aufruf werden technisch notwendige Verbindungsdaten (siehe Abschnitt 2a) durch GitHub verarbeitet. Details: [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
 
-Rechtsgrundlagen sind Artikel 6 Abs. 1 lit. c) DSGVO und Artikel 6 Abs. 1 lit. f) DSGVO. Das berechtigte Interesse besteht in der Verwaltung der Cookies und Einwilligungen.
-
-Die Bereitstellung personenbezogener Daten ist weder vertraglich vorgeschrieben noch für einen Vertragsabschluss notwendig. Sie sind nicht verpflichtet, diese bereitzustellen. Ohne Bereitstellung können Einwilligungen jedoch nicht verwaltet werden.
+Die verwendete Schriftart **Inter** wird über das Open-Source-Paket [@fontsource](https://fontsource.org/) lokal von unserem eigenen Server ausgeliefert — es findet keine Verbindung zu Google Fonts oder anderen Drittanbietern statt.

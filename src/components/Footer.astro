@@ -36,6 +36,11 @@ const sections = (await getCollection('sections'))
       <p>Registernummer: VR 1507</p>
       <a href={pathTo('impressum')} style="margin-top: 1rem; display: inline-block;">Impressum</a>
       <a href={pathTo('datenschutz')} style="display: inline-block;">Datenschutz</a>
+      <a
+        href="#"
+        onclick="event.preventDefault(); window.klaro && window.klaro.show();"
+        style="display: inline-block;"
+      >Cookie-Einstellungen</a>
     </div>
   </div>
   <div class="footer-bottom">

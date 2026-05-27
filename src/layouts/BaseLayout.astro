@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+// Inter Variable lokal eingebunden — SIL Open Font License, von Rasmus Andersson
+// unabhaengig vom Google-Oekosystem. Kein CDN-Call zu Drittanbietern.
+import '@fontsource-variable/inter';
+import { pathTo } from '../utils/url';
 
 interface Props {
   title?: string;
@@ -93,13 +97,13 @@ const ogImage = 'https://duc-essen.de/wp-content/uploads/2024/02/Home-1-b.jpg';
     <!-- Theme Color -->
     <meta name="theme-color" content="#004F9E" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!--
+      Klaro Privacy Manager — Cookie/Consent-Banner.
+      `is:inline` damit Astro nichts deferred/bundleled; Reihenfolge wichtig:
+      Config zuerst, dann das Klaro-Script.
+    -->
+    <script is:inline defer src={pathTo('klaro/klaro-config.js')}></script>
+    <script is:inline defer data-config="klaroConfig" src={pathTo('klaro/klaro.js')}></script>
   </head>
   <body>
     <!-- Skip Link -->
