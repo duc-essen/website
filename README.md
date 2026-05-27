@@ -5,6 +5,17 @@ Quellcode der Vereinswebsite des **Deutschen Unterwasserclub Essen e.V.**
 - **Live:** [duc-essen.github.io/duc-website](https://duc-essen.github.io/duc-website/) (Default-URL bis DNS-Umzug auf [duc-essen.de](https://duc-essen.de))
 - **Stack:** [Astro v6](https://astro.build/), statisches Hosting auf GitHub Pages, Deployment via GitHub Actions.
 
+## Inhalte pflegen — gemeinsam mit einem KI-Agenten
+
+Die Architektur ist explizit so gebaut, dass Vereinsmitglieder **keine** Astro/HTML/CSS-Kenntnisse brauchen, um die Seite anzupassen. Stattdessen:
+
+1. Vorstand oder Mitglied oeffnet das Repo in einer KI-Code-Umgebung (Claude Code, Cursor, Codex).
+2. Sagt dem Agenten in natuerlicher Sprache, was sich aendern soll — z.B. *„Der neue Kassenwart heisst Lisa Mueller"* oder *„Wir haben jetzt 50 statt 45 aktive Mitglieder"* oder *„Verschiebe das Antauchen-Datum auf den 25. April 2027"*.
+3. Der Agent liest [`AGENTS.md`](./AGENTS.md), findet die richtige Datei (meist eine kleine `.json` oder `.md`), macht die Aenderung, committet und pusht.
+4. GitHub Actions validiert das geaenderte Schema, baut die Seite, deployed. Bei Schemafehler bleibt die alte Version online.
+
+**Was dabei alles ueber Markdown/JSON pflegbar ist:** Vereinsstammdaten, Vorstand, Mitgliedsbeitraege, Hero-Text, Stats-Zahlen, Section-Titel, Angebote-Karten, Geschichts-Eintraege, Mitgliedschafts-Verbaende, Trainings-Bilder, Kontaktdaten. Plus **automatisch** aus dem Vereinsplaner: alle Vereinstermine + Trainings.
+
 ## Lokale Entwicklung
 
 ```bash

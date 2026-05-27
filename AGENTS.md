@@ -4,6 +4,26 @@ Briefing fuer KI-Agenten (Claude Code, Codex, Cursor) **und** menschliche Mitarb
 
 Ziel dieser Datei: **wer das hier in 60 Sekunden liest, kann sofort sinnvoll Aenderungen machen** — ohne den Quellcode durchsuchen oder Astro-Docs lesen zu muessen.
 
+> **Primaerer Use-Case:** Vereinsmitglieder (Vorstand, Mitglieder) sollen die Website **mit Hilfe eines KI-Agenten** anpassen und erweitern koennen, ohne selbst programmieren zu muessen. Sie sagen dem Agenten in natuerlicher Sprache, was sich aendern soll — der Agent liest diese Doku, findet die richtige Stelle, macht die Aenderung, committet und pusht. Das Schema validiert beim Build, die Site geht nicht kaputt online.
+
+## Workflow: Vereinsmitglied + KI-Agent
+
+Beispiel-Anweisungen, die ein Mitglied dem Agenten geben kann (alle haben hier funktioniert):
+
+| Anweisung | Was der Agent tut |
+|---|---|
+| „Der neue 2. Vorsitzende heisst Lisa Mueller" | Eintrag in `src/data/vorstand.json` aendern, commit + push |
+| „Hallenbad-Beitrag erhoeht sich auf 9 €" | `preis_monat` in `src/data/preise.json` setzen |
+| „Wir haben 50 aktive Mitglieder" | `wert: "50"` in `src/data/stats.json` |
+| „Neuer Geschichts-Eintrag: 2027 — Vereinsfahrt nach Aegypten" | Neue Datei `src/content/geschichte/07-2027-aegypten.md` mit korrektem Frontmatter |
+| „Tausche das Angebots-Icon Wettkampf gegen ein Pokal-Icon" | Slug bleibt, SVG-Markup in `src/components/icons.ts` ersetzen |
+| „Termine pflegen" | Im Vereinsplaner anlegen — die Site holt sie automatisch beim taeglichen Build |
+| „Andere Vereinsadresse" | `src/data/verein.json` editieren — Footer, Impressum, Datenschutz, JSON-LD spiegeln sofort |
+
+**Was der Agent NICHT machen soll** ohne explizite Freigabe: Custom-Domain umziehen, Klaro-Cookies-Logik anfassen, neue Drittanbieter einbinden, Datenschutz-Text aendern, Vereinsplaner-Feed-URL austauschen, GitHub-Workflows verbiegen, `verein.json`-Struktur veraendern.
+
+**Sanity-Net:** Jeder Build laeuft durch GitHub Actions. Wenn der Agent etwas Falsches einbaut (z.B. ungueltiges JSON, Schema-Verletzung), schlaegt der Build fehl, die alte Live-Site bleibt erhalten. Der Agent sieht den Fehler und kann reagieren. Praktisch unkaputtbar.
+
 ---
 
 ## TL;DR (60-Sekunden-Brief)
