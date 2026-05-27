@@ -27,6 +27,8 @@ Die Befunde basieren auf einer systematischen Analyse von:
 | 9 | Non-Null-Assertions abbauen | klein (~10 min) | Crashes vermeiden | minimal |
 | 10 | JSON-LD aus `verein.json` | klein (~15 min) | Single source of truth | minimal |
 
+Seit der ersten Review zwischendurch erledigt: **Stats-Daten** sind jetzt in `src/data/stats.json` statt hartcodiert. Damit sind nur noch der Hero-Block (Tagline + CTAs) und das JSON-LD im BaseLayout als „hartcodiert" uebrig.
+
 **Empfehlung**: Drei Pakete je nach Zeitbudget — siehe Ende.
 
 ---
@@ -164,11 +166,12 @@ Wo `<CtaButton />`:
 
 ## 🟡 5. Icon-Enums zentralisieren
 
-**Befund:** In `content.config.ts` stehen 4 separate `z.enum([...])`:
-- Zeile ~52: angebote-Icons
-- Zeile ~78: veranstaltungen-Icons
-- Zeile ~93: geschichte-Icons
-- Zeile ~116: preise-Icons
+**Befund:** In `content.config.ts` stehen drei separate `z.enum([...])`:
+- angebote-Icons (`freitauchen` | `hallenbad` | …)
+- geschichte-Icons (`diver` | `document` | …)
+- preise-Icons (`erwachsene` | `familie` | `jugend`)
+
+(Veranstaltungen-Icons werden inzwischen per `guessIcon()` aus dem Event-Titel ermittelt, kein Schema noetig.)
 
 **Vorher:**
 ```ts

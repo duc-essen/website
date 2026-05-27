@@ -147,17 +147,9 @@ order: number
 # Body: Markdown-Beschreibung (rendert in der Karte)
 ```
 
-### `veranstaltungen` — Live-Feed aus dem Vereinsplaner
+### Termine + Trainings — Live-Feed aus dem Vereinsplaner
 
-Keine Markdown-Dateien mehr — siehe Abschnitt **„Bevorstehende Termine"** unten. Loader: [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts). Schema:
-```yaml
-summary: string         # SUMMARY aus iCal
-start: Date             # DTSTART
-end?: Date              # DTEND
-location?: string       # LOCATION
-description: string     # DESCRIPTION
-url?: string            # URL (Vereinsplaner-App-Link)
-```
+Drei separate Collections mit demselben Schema, siehe weiter unten unter „Schemas: veranstaltungen + vergangene-termine + trainings" und „Bevorstehende Termine".
 
 ### `geschichte` (`src/content/geschichte/*.md`)
 ```yaml
@@ -183,6 +175,27 @@ JSON-Array, jedes Objekt: `{ id, rolle, name, order }`.
 
 ### `preise` (`src/data/preise.json`)
 JSON-Array, jedes Objekt: `{ id, gruppe, preis_monat, preis_quartal, icon: 'erwachsene'|'familie'|'jugend', order }`.
+
+### `stats` (`src/data/stats.json`)
+JSON-Array fuer die Kennzahlen-Sektion. Jedes Objekt: `{ id, wert, label, order }`. `wert` ist string (statt number), damit auch „60+" oder „ca. 45" gehen.
+
+### `veranstaltungen` + `vergangene-termine` + `trainings` — live aus Vereinsplaner
+Drei Collections, alle mit dem gleichen Loader `vereinsplanerLoader({ mode, limit? })`:
+- `veranstaltungen` — alle zukuenftigen oeffentlichen Termine (kein Training/Vorstand/Papnoe)
+- `vergangene-termine` — letzte 6 vergangenen oeffentlichen Termine (sortiert neueste zuerst, dient als Fuellmaterial in der Liste)
+- `trainings` — naechste 6 DUC-Trainings (kein TSV)
+
+Schema einheitlich:
+```yaml
+summary: string
+start: Date
+end?: Date
+location?: string
+description: string
+url?: string
+```
+
+Filter-Logik in [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts) anpassen.
 
 ### `verein` (`src/data/verein.json`) — kein Schema, direkter Import
 Einzelnes JSON-Objekt mit `name`, `shortName`, `anschrift {postfach, plzOrt, land}`, `email`, `emailDatenschutz`, `registergericht`, `registernummer`, `traegervereinHinweis`. Wird per `import verein from '../data/verein.json'` aus Footer, Impressum und Datenschutz gelesen. Single source of truth fuer Vereinsstammdaten.
@@ -247,15 +260,20 @@ https://api.vereinsplaner.at/v1/public/ical/3b22bae6-cb37-4e7c-8da4-f69f4563fd82
 ```
 
 Workflow:
-1. Vorstand legt Events im Vereinsplaner an (mit Datum, Titel, Beschreibung, Ort).
-2. Astro holt den Feed beim Build via [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts) (Custom Astro Content Loader, nutzt `node-ical`).
-3. Filter: nur zukuenftige Events, nicht „Training"/„Vorstand"/„Papnoe" im Titel.
-4. Pro Eintrag wird im Build eine Karte gerendert: Icon wird aus dem Event-Titel geraten (Pool/Waves/Video/etc.), Datum wird auf Deutsch formatiert, Beschreibung kommt aus DESCRIPTION.
-5. **Aktualitaet:** GitHub Action laeuft **taeglich um 04:00 UTC** (Cron in `.github/workflows/deploy.yml`), holt den Feed neu, deployed. Manuell via `workflow_dispatch` triggerbar.
+1. Vorstand legt Events im Vereinsplaner an (Datum, Titel, Beschreibung, Ort).
+2. Astro holt den Feed beim Build via [`src/loaders/vereinsplaner.ts`](./src/loaders/vereinsplaner.ts) (Custom Loader, nutzt `node-ical`).
+3. Drei Collections mit Filter-Modi:
+   - **`veranstaltungen`** (`mode: 'public'`) — alle zukuenftigen oeffentlichen Termine (kein „Training"/„Vorstand"/„Papnoe" im Titel).
+   - **`vergangene-termine`** (`mode: 'public-past'`, limit 6) — die letzten oeffentlichen Termine als Fuellmaterial.
+   - **`trainings`** (`mode: 'training'`, limit 6) — naechste DUC-Trainings. „Training TSV" wird ausgefiltert (gehoert zum TSV NRW).
+4. **`Veranstaltungen.astro`** rendert beides:
+   - Block 1: max. 6 Termine kombiniert — zuerst zukuenftige, dann mit vergangenen aufgefuellt. Vergangene haben graue Datums-Kachel + „vergangen"-Badge.
+   - Block 2: „Naechste Trainings" — 6 Trainings als kompakte Liste.
+5. **Aktualitaet:** GitHub Action laeuft **taeglich um 04:00 UTC** (Cron in `.github/workflows/deploy.yml`). Manuell via `gh workflow run "Deploy to GitHub Pages"`.
 
-**Wenn der Feed nicht erreichbar ist** → der Loader gibt eine leere Collection zurueck. Die Seite zeigt einen Hinweis „Aktuell keine Termine eingetragen" statt zu crashen, deploy laeuft weiter.
+**Wenn der Feed nicht erreichbar ist** → leere Collection, Seite zeigt „Aktuell keine Termine eingetragen", deploy laeuft weiter (alte Site bleibt sonst live).
 
-**Filter erweitern/anpassen:** in `src/loaders/vereinsplaner.ts` die `DENY_PATTERNS`-Liste editieren.
+**Filter erweitern/anpassen:** in `src/loaders/vereinsplaner.ts` die Funktion `matchesTitle()` editieren.
 
 ---
 

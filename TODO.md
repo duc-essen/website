@@ -57,16 +57,15 @@ Pakete:
 
 ## Niedrig — Polish + Markdown-Ausbau
 
-### Hero + Stats in Collections holen
+### Hero in Collection holen
 
-Beide sind aktuell hartcodierte Komponenten (`src/components/Hero.astro`, `src/components/Stats.astro`). Wenn pflegbar:
+Hero ist aktuell hartcodiert in `src/components/Hero.astro` (Headline, Subtitle, zwei CTA-Buttons).
 
-- [ ] **Hero:** neue Section `src/content/sections/hero.md` mit `title`, `subtitle`, `cta1`, `cta2`. Hero-Komponente liest daraus.
-- [ ] **Stats:** entweder neue Collection `src/data/stats.json` (4 Eintraege: Jahre, Mitglieder, Trainings, LLSP) — oder Stats-Block ins Frontmatter einer Section.
+- [ ] Neue Section `src/content/sections/hero.md` mit `title`, `subtitle`, `cta1`, `cta2`. Hero-Komponente liest daraus.
 
 ### Stats-Counter-Animation
 
-- [ ] `data-target`-Attribute liegen brach. Entweder Counter-JS im BaseLayout schreiben (IntersectionObserver + numerischer Zaehler) oder Attribute entfernen.
+- [ ] Aktuell statische Zahlen. Optional: IntersectionObserver-basierter Counter (Animation von 0 bis Zielwert beim Scrollen in den Viewport). `Stats.astro` muesste `target`-Feld aus Schema unterstuetzen und JS im BaseLayout erweitern.
 
 ### `verein.json` weiter nutzen
 
@@ -100,6 +99,8 @@ Beide sind aktuell hartcodierte Komponenten (`src/components/Hero.astro`, `src/c
 
 ## Erledigt (Referenz)
 
+- **Stats sind aus `src/data/stats.json` pflegbar** (vorher hartcodiert).
+- **Termine-Sektion** zeigt jetzt max. 6 Eintraege als kombinierte Liste (zukuenftige + ggf. vergangene). Vergangene visuell markiert (graue Kachel + „vergangen"-Badge). `Training TSV` faellt aus der Trainings-Liste raus (kein DUC-Termin).
 - **Veranstaltungen kommen jetzt LIVE aus dem Vereinsplaner-iCal-Feed.** Vorstand pflegt nur dort, Astro-Build holt + filtert, taegliches Cron-Rebuild.
 - Astro-Setup + komplette Komponenten-Migration aus dem urspruenglichen Single-File-Entwurf
 - GitHub Pages Deployment via `withastro/action@v6`
